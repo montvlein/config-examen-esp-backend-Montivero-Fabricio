@@ -13,7 +13,7 @@ spring:
         - id: id-api-catalog
           uri: lb://api-catalog
           predicates:
-            - Path=/api/v1/catalog
+            - Path=/api/v1/catalog/**
 
 info:
   app:
