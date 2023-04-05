@@ -19,6 +19,18 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: circuitbreakers, circuitbreakerevents, health, info, ratelimiters, metrics
+  health:
+    circuitbreakers:
+      enable: true
+  endpoint:
+    health:
+      show-details: always
+
 resilience4j:
   retry:
     configs:
@@ -46,9 +58,22 @@ resilience4j:
         automatic-transition-from-open-to-half-open-enabled: true
         failure-rate-threshold: 50
     instances:
-      getByGenr:
+      getSerieByGenr:
         base-config: default
         sliding-window-type: COUNT_BASED
         sliding-window-size: 5
-        wait-duration-in-open-state: 1m
+        wait-duration-in-open-state: 15000
         failure-rate-threshold: 40
+        allowHealthIndicatorToFail: false
+        registerHealtthIndicattor: true
+        permittedNumberOfCallsInHalfOpenState: 3
+      getMovieByGenr:
+        base-config: default
+        sliding-window-type: COUNT_BASED
+        sliding-window-size: 5
+        wait-duration-in-open-state: 15000
+        failure-rate-threshold: 30
+        allowHealthIndicatorToFail: false
+        registerHealtthIndicattor: true
+        permittedNumberOfCallsInHalfOpenState: 3
+        
