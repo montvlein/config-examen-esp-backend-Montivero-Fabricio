@@ -28,11 +28,17 @@ eureka:
     fetchRegistry: true
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
+
 management:
+  health:
+    circuitbreakers:
+      enable: true
   endpoint:
+    health:
+      show-details: always
     gateway:
       enable: true
   endpoints:
     web:
       exposure:
-        include: gateway
+        include: gateway, circuitbreakers, circuitbreakerevents, health, info, ratelimiters, metrics
