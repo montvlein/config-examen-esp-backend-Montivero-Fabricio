@@ -19,18 +19,6 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: circuitbreakers, circuitbreakerevents, health, info, ratelimiters, metrics
-  health:
-    circuitbreakers:
-      enable: true
-  endpoint:
-    health:
-      show-details: always
-
 resilience4j:
   retry:
     configs:
