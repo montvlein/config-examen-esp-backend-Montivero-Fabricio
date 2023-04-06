@@ -36,7 +36,6 @@ resilience4j:
         retry-exceptions:
           - java.io.IOException
           - java.net.SocketTimeoutException
-          - java.net.UnknownHostException
       instances:
         getSerieByGenr:
           base-config: default
@@ -44,12 +43,14 @@ resilience4j:
           wait-duration: 2s
           retry-exceptions:
             - java.net.ConnectException
+            - java.net.UnknownHostException
         getMovieByGenr:
           base-config: default
           max-retry-attempts: 5
           wait-duration: 2s
           retry-exceptions:
             - java.net.ConnectException
+            - java.net.UnknownHostException
   
   circuitbreaker:
     configs:
