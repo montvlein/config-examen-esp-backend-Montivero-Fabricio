@@ -8,6 +8,9 @@ spring:
     mongodb:
       database: catalog-offline
       port: 27018
+      authentication-database: admin
+      username: user
+      password: password
 
 info:
   application:
