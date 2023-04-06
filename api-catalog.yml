@@ -4,6 +4,10 @@ server:
 spring:
   application:
     name: api-catalog
+  data:
+    mongodb:
+      database: catalog-offline
+      port: 27018
 
 info:
   application:
