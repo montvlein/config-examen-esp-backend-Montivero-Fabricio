@@ -65,18 +65,11 @@ resilience4j:
         base-config: default
         sliding-window-type: COUNT_BASED
         sliding-window-size: 5
-        wait-duration-in-open-state: 15000
-        failure-rate-threshold: 40
-        allowHealthIndicatorToFail: false
-        registerHealtthIndicattor: true
-        permittedNumberOfCallsInHalfOpenState: 3
+        wait-duration-in-open-state: 1m
+        failure-rate-threshold: 50
       getMovieByGenr:
         base-config: default
         sliding-window-type: COUNT_BASED
         sliding-window-size: 5
-        wait-duration-in-open-state: 15000
-        failure-rate-threshold: 30
-        allowHealthIndicatorToFail: false
-        registerHealtthIndicattor: true
-        permittedNumberOfCallsInHalfOpenState: 3
-        
+        wait-duration-in-open-state: 1m
+        failure-rate-threshold: 50        
