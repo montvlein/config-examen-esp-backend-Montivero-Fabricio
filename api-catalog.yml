@@ -36,6 +36,7 @@ resilience4j:
         retry-exceptions:
           - java.io.IOException
           - java.net.SocketTimeoutException
+          - java.net.UnknownHostException
       instances:
         getSerieByGenr:
           base-config: default
