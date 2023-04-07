@@ -51,7 +51,6 @@ resilience4j:
           retry-exceptions:
             - java.net.ConnectException
             - java.net.UnknownHostException
-            - feign.RetryableException
   
   circuitbreaker:
     configs:
